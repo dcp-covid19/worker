@@ -28,7 +28,7 @@ const StartWorkerButton = ({ }) => {
   }, [running, setRunning]);
 
   return (
-    <button className="btn btn-dcp-yellow" onClick={onClick} style={{ width: '70px'}}>
+    <button className="btn btn-success" onClick={onClick} style={{ width: '100px' }}>
       { running? 'Stop' : 'Start' }
     </button>
   );

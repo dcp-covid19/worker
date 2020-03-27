@@ -1,3 +1,11 @@
+
+$custom-green: #146300;
+$custom-yellow: #E8BC14;
+$theme-colors: (
+  "success": $custom-green,
+  "warning": $custom-yellow
+);
+
 @import '../../node_modules/bootstrap/scss/bootstrap';
 @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
 
@@ -7,9 +15,24 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background-color: #E5E7E7;
+  background-color: #FFFFFF;
+  font-size: 0.9rem;
 }
 
 .btn.btn-dcp-yellow {
   background-color: #f1b50c;
+}
+
+.text-yellow {
+  color: $custom-yellow;
+}
+
+.text-green {
+  color: $custom-green;
+}
+
+div.colored-divider {
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(to right, $custom-yellow 0%, $custom-yellow 20%, $custom-green 20.5%, $custom-green 100%);
 }
