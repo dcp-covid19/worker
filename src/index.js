@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './style/index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+
+const PAYMENT_ADDRESS = '0xA225B64d0D2253C0BD57B3cEa8b04a1A8d65548a';
+window.dcp.compute.paymentAddress = PAYMENT_ADDRESS;
 
 ReactDOM.render(
   <React.StrictMode>

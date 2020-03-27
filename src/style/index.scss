@@ -1,0 +1,15 @@
+@import '../../node_modules/bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Muli', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  background-color: #E5E7E7;
+}
+
+.btn.btn-dcp-yellow {
+  background-color: #f1b50c;
+}
