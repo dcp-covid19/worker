@@ -6,7 +6,7 @@ import Header from 'dcp-covid19.github.io/components/Header';
 function App() {
   return (
     <>
-      <Header />
+      <Header activeLink="Worker" />
       <div className="container">
         <div className="row mt-4">
           <div className="col-12 col-md-5">
