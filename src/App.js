@@ -1,23 +1,12 @@
 import React from 'react';
 import StartWorkerButton from './components/StartWorkerButton';
 import WorkerProgressBars from './components/WorkerProgressBars';
-import DCPLogo from './components/DCPLogo';
+import Header from 'dcp-covid19.github.io/components/Header';
 
 function App() {
   return (
     <>
-      <div className="container-fluid d-flex align-items-center justify-content-between p-4">
-        <DCPLogo className="ml-4"/>
-        <span className="mr-2">
-          <span className="text-secondary">
-            {(new Date()).toLocaleDateString('en-US')}
-            &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;
-          </span>
-          <span className="text-green">500,000 cases</span>
-          <span className="ml-3 text-yellow">130,000 cured</span>
-        </span>
-      </div>
-      <div className="colored-divider"></div>
+      <Header />
       <div className="container">
         <div className="row mt-4">
           <div className="col-12 col-md-5">
