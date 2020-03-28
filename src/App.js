@@ -23,9 +23,9 @@ function App() {
           <div className="col-12 col-md-5">
             <div className="card">
               <div className="card-body">
-                <div className="logo-header">
+                <div className="d-flex align-items-center">
                   <img src="https://dcp-covid19.github.io/logo.svg" alt="dcp-covid19 logo"></img>
-                  <h4 className="mb-1">ACME Study</h4>
+                  <h4 className="mb-1 ml-2">ACME Study</h4>
                 </div>
                 <small>How it helps fighting <span className="text-green">COVID-19</span></small>
 

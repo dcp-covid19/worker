@@ -1,16 +1,1 @@
-// these are copied from the org-theme
-$theme-colors: (
-  "success": #146300,
-  "warning": #E8BC14
-);
-@import '../../node_modules/bootstrap/scss/bootstrap';
-@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
-@import url('https://dcp-covid19.github.io/org-theme.css');
-
-.logo-header {
-  display: flex;
-  align-items: center;
-  h4 {
-    margin-left: 0.5em;
-  }
-}
+@import '~dcp-covid19.github.io/style/common';
