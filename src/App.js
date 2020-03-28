@@ -23,7 +23,10 @@ function App() {
           <div className="col-12 col-md-5">
             <div className="card">
               <div className="card-body">
-                <h4 className="mb-1">ACME Study</h4>
+                <div className="logo-header">
+                  <img src="https://dcp-covid19.github.io/logo.svg" alt="dcp-covid19 logo"></img>
+                  <h4 className="mb-1">ACME Study</h4>
+                </div>
                 <small>How it helps fighting <span className="text-green">COVID-19</span></small>
 
                 <div className="w-100 mt-4 mb-4" style={{ backgroundColor: '#e5e7e7', height: '100px' }} />
