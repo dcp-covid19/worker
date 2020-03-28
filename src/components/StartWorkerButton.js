@@ -28,8 +28,8 @@ const StartWorkerButton = ({ }) => {
   }, [running, setRunning]);
 
   return (
-    <button className="btn btn-success" onClick={onClick} style={{ width: '100px' }}>
-      { running? 'Stop' : 'Start' }
+    <button className={`btn btn-${running? 'outline-' : ''}success`} onClick={onClick} style={{ width: '100px' }}>
+      { running? 'Pause' : 'Start' }
     </button>
   );
 }
