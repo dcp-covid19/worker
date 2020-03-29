@@ -80,7 +80,7 @@ const WorkerProgressBars = () => {
           <span className="font-weight-bold mr-4">Status</span>
           <span>{running? 'Computing' : 'Ready to Compute'}</span>
         </span>
-        <span className="text-secondary">Task: ACME</span>
+        <span className="text-secondary">Task: COVID-19 Mapping</span>
       </div>
       { workers.map((worker) => (
         <ProgressBar worker={worker} key={worker.id} />

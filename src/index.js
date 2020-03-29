@@ -4,7 +4,7 @@ import './style/index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-const PAYMENT_ADDRESS = '0xA225B64d0D2253C0BD57B3cEa8b04a1A8d65548a';
+const PAYMENT_ADDRESS = '0xEf5E3EeCc782F63317dD4e4CaDAF3B37A80F99EB';
 window.dcp.compute.paymentAddress = PAYMENT_ADDRESS;
 
 ReactDOM.render(

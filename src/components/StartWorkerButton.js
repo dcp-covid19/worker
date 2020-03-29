@@ -1,4 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react';
+import demoKeystore from '../demoKeystore';
 
 const StartWorkerButton = ({ }) => {
   const [running, setRunning] = useState(false);
@@ -15,12 +16,15 @@ const StartWorkerButton = ({ }) => {
     }
   }, [setRunning]);
 
-  const onClick = useCallback(() => {
+  const onClick = useCallback(async () => {
     const nextRunning = !running;
     setRunning(nextRunning);
 
     if (nextRunning) {
       console.log("Starting worker...");
+      let keystore = await new window.dcp.wallet.Keystore(demoKeystore)
+      await keystore.unlock(null, 24 * 60 * 60)
+      window.dcp.wallet.add(keystore)
       window.dcp.compute.mine();
     } else {
       window.dcp.compute.stopMining();
@@ -28,8 +32,8 @@ const StartWorkerButton = ({ }) => {
   }, [running, setRunning]);
 
   return (
-    <button className="btn btn-success" onClick={onClick} style={{ width: '100px' }}>
-      { running? 'Stop' : 'Start' }
+    <button className={`btn btn-${running? 'outline-' : ''}success`} onClick={onClick} style={{ width: '100px' }}>
+      { running? 'Pause' : 'Start' }
     </button>
   );
 }

@@ -1,0 +1,3 @@
+const demoKeystore = {"version":3,"id":"e7aea5cc-e223-4c85-8212-b8ba319bf9d0","address":"96aff0879a2679a4a35b6172fa9d583e95b794af","crypto":{"ciphertext":"a3c815aa7cfbddd6ccf37f0f87db5ce09014e26bbaf63d3aa0b516757eb10627","cipherparams":{"iv":"f396d229b9c7678e4c0121bf848b6379"},"cipher":"aes-128-ctr","kdf":"scrypt","kdfparams":{"dklen":32,"salt":"31ea91102a4534df50a735f15aceb12b429755b108afbd46ef2b1f8f9682c449","n":1024,"r":8,"p":1},"mac":"9d5506e9e3ed4773263afc457657f951bcb6667176a6870dd151c3e831c98bd8"},"label":"covid19-demo-worker-keystore","flags":0,"developer":0}
+
+export default demoKeystore;
