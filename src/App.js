@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react';
 import StartWorkerButton from './components/StartWorkerButton';
 import WorkerProgressBars from './components/WorkerProgressBars';
-// import Header from 'dcp-covid19.github.io/components/Header';
+import Header from './components/Header';
 
 function App() {
   return (
     <Fragment>
-      {/* <Header activeLink="Home" /> */}
+      <Header activeLink="Home" />
       <div className="colored-divider"></div>
       <div className="container">
         <div className="row mt-4">
@@ -19,7 +19,7 @@ function App() {
                 </div>
                 <small>Join the fight against <span className="text-green">COVID-19</span></small>
 
-                <div className="w-100 mt-4 mb-4" style={{ backgroundColor: '#e5e7e7', height: '100px' }} />
+                {/* <div className="w-100 mt-4 mb-4" style={{ backgroundColor: '#e5e7e7', height: '100px' }} /> */}
 
                 <p>Project Objective:</p>
                 <p>

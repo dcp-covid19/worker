@@ -1,1 +1,10 @@
 @import '~dcp-covid19.github.io/style/common';
+
+a.header-link {
+  color: #888;
+  font-weight: bold;
+}
+
+a.header-link.active {
+  color: $custom-green;
+}
