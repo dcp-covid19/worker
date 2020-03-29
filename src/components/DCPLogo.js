@@ -15,7 +15,7 @@ const LogoSVG = () => (
 const DCPLogo = ({ className }) => (
   <div className={`d-flex align-items-center ${className}`}>
     <LogoSVG />
-    <span className="ml-2" style={{ fontSize: '1rem', lineHeight: '1.2rem' }}>DISTRIBUTED<br />COMPUTE LABS</span>
+    <span className="ml-3" style={{ fontSize: '1.3rem' }}>Distributed.Computer</span>
   </div>
 );
 

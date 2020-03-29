@@ -6,7 +6,7 @@ import Header from './components/Header';
 function App() {
   return (
     <Fragment>
-      <Header activeLink="Home" />
+      <Header activeLink="Worker" />
       <div className="colored-divider"></div>
       <div className="container">
         <div className="row mt-4">
