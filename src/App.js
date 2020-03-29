@@ -37,7 +37,7 @@ function App() {
                   The Distributed Compute Protocol (DCP) distributes computational workload across any device, anywhere, in order to speed up the overall computation. Many hands (computers) make light work!
                 </p>
 
-                <a href="//distributed.computer" target="_blank" rel="noopener noreferrer" className="btn btn-outline-success mt-4">Learn More</a>
+                <a href="https://distributed.computer" target="_blank" rel="noopener noreferrer" className="btn btn-outline-success mt-4">Learn More</a>
               </div>
             </div>
           </div>
