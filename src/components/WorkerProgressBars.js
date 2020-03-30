@@ -38,12 +38,14 @@ const WorkerProgressBars = () => {
 
   return (
     <>
-      <div className="border d-flex align-items-center justify-content-between p-3 mt-3" style={{marginBottom: "15px"}}>
-        <span>
+      <div className="border row p-3 m-0 mt-3" style={{marginBottom: "15px"}}>
+        <div className="col-12 col-sm-6">
           <span className="font-weight-bold mr-4">Status</span>
           <span id="compute-status-span">Ready to Compute</span>
-        </span>
-        <span className="text-secondary">Task: COVID-19 Mapping</span>
+        </div>
+        <div className="col-12 col-sm-6">
+          <span className="text-secondary float-right">Task: COVID-19 Mapping</span>
+        </div>
       </div>
       { workers.map((worker, idx) => (
         <ProgressBar worker={worker} key={worker.id} index={idx} />

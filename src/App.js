@@ -10,7 +10,7 @@ const App = () => {
       <Header activeLink="Worker" />
       <div className="container">
         <div className="row mt-4">
-          <div className="col-12 col-md-5 order-2">
+          <div className="col-12 col-lg-5 order-2">
             <div className="card">
               <div className="card-body">
                 <div className="d-flex align-items-center">
@@ -42,7 +42,7 @@ const App = () => {
               </div>
             </div>
           </div>
-          <div className="col-12 col-md-7 p-3 order-md-12 order-1">
+          <div className="col-12 col-lg-7 p-3 order-lg-12 order-1">
             <h3 className="mb-4">Compute for <span className="text-green">COVID-19</span></h3>
             <StartWorkerButton />
             <WorkerProgressBars />
