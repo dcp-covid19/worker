@@ -1,10 +1,29 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 import StartWorkerButton from './components/StartWorkerButton';
 import WorkerProgressBars from './components/WorkerProgressBars';
 import StatsSummary from './components/StatsSummary';
 import Header from 'dcp-covid19.github.io/components/Header';
 
 const App = () => {
+  const [statusText, setStatusText] = useState();
+
+  const updateStatus = useCallback((newStatus)=>{
+    switch (newStatus) {
+      case 'ready':
+        setStatusText('Ready to Compute')
+        break;
+      case 'waiting':
+        setStatusText('Waiting for Researchers ...');
+        break;
+      case 'computing':
+        setStatusText('Computing ...');
+        break
+      default:
+        throw new Error('Update status to one of three special values. Look at the code!')
+        break;
+    }
+  },[])
+
   return (
     <>
       <Header activeLink="Worker" />
@@ -44,8 +63,8 @@ const App = () => {
           </div>
           <div className="col-12 col-lg-7 p-3 order-lg-12 order-1">
             <h3 className="mb-4">Compute for <span className="text-green">COVID-19</span></h3>
-            <StartWorkerButton />
-            <WorkerProgressBars />
+            <StartWorkerButton updateStatus={updateStatus} />
+            <WorkerProgressBars updateStatus={updateStatus} statusText={statusText}/>
           </div>
         </div>
       </div>

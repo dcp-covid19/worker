@@ -3,11 +3,10 @@ import ProgressBar from './ProgressBar';
 import { act } from 'react-dom/test-utils';
 // import { act } from 'react-dom/test-utils';
 
-const WorkerProgressBars = () => {
+const WorkerProgressBars = ({updateStatus, statusText}) => {
   const [workers, setWorkers] = useState([]);
   const [activeWorkerCount, setActiveWorkerCount] = useState(0);
   const [running, setRunning] = useState(false);
-  const [statusText, setStatusText] = useState();
 
   useEffect(() => {
     const onSandboxStart = (worker) => {
@@ -49,9 +48,9 @@ const WorkerProgressBars = () => {
 
   useEffect(()=>{
     if (running) {
-      setStatusText(activeWorkerCount === 0 ? 'Waiting for Researchers ...' : 'Computing ...')
+      activeWorkerCount === 0 ? updateStatus('waiting') : updateStatus('computing');
     } else {
-      setStatusText('Ready to Compute')
+      updateStatus('ready')
     }
   },[activeWorkerCount, running])
 

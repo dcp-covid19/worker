@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import demoKeystore from '../demoKeystore';
 
-const StartWorkerButton = ({ }) => {
+const StartWorkerButton = ({ updateStatus }) => {
   const [running, setRunning] = useState(false);
 
   useEffect(() => {
@@ -29,7 +29,7 @@ const StartWorkerButton = ({ }) => {
 
     // Modify text on click (putting the Hack in hackathon)
     let countSpan = document.getElementById('fighters-count');
-
+    
     if (nextRunning) {
       let keystore = await new window.dcp.wallet.Keystore(demoKeystore)
       await keystore.unlock(null, 24 * 60 * 60)
@@ -38,6 +38,7 @@ const StartWorkerButton = ({ }) => {
       if (countSpan) countSpan.innerText = parseFloat(countSpan.innerText) + 1
     } else {
       window.dcp.compute.stopMining();
+      updateStatus('ready')
       if (countSpan) countSpan.innerText = parseFloat(countSpan.innerText) - 1
     }
   }, [running, setRunning]);
