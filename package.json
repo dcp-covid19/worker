@@ -8,7 +8,7 @@
     "@testing-library/user-event": "^7.2.1",
     "bootstrap": "^4.4.1",
     "customize-cra": "^0.9.1",
-    "dcp-covid19.github.io": "git+https://github.com/dcp-covid19/dcp-covid19.github.io.git",
+    "dcp-covid19.github.io": "github:dcp-covid19/dcp-covid19.github.io",
     "gh-pages": "^2.2.0",
     "node-sass": "^4.13.1",
     "react": "^16.13.1",
@@ -17,7 +17,7 @@
     "react-scripts": "3.4.1"
   },
   "scripts": {
-    "start": "PORT=8080 react-app-rewired start",
+    "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-app-rewired eject",
