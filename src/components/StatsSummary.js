@@ -12,7 +12,7 @@ const StatsSummary = () => {
   const options = {
     fetchFunc,
     initialState: {},
-    delay: 5000
+    delay: 60 * 1000
   }
   
   let stats = useAPIPolling(options)
