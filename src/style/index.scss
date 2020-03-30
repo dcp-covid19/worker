@@ -8,3 +8,26 @@ a.header-link {
 a.header-link.active {
   color: $custom-green;
 }
+
+.console {
+  background-color: #ddd;
+  font-family: monospace;
+  padding: 5px 15px;
+  p {
+    margin: 5px 0;
+  }
+  margin-bottom: 15px;
+}
+
+.worker-status {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+  p {
+    width: 5em;
+    margin: 0;
+  }
+  $color_bar: #29D9C2;
+  $color_high: #FF3B77;
+  $color_background: #2F2933;
+}

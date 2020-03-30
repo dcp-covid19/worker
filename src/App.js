@@ -1,9 +1,9 @@
 import React from 'react';
 import StartWorkerButton from './components/StartWorkerButton';
 import WorkerProgressBars from './components/WorkerProgressBars';
-import Header from 'dcp-covid19.github.io/components/Header';
+import StatsSummary from './components/StatsSummary';
 
-function App() {
+const App = () => {
   return (
     <>
       <Header activeLink="Worker" />
@@ -18,9 +18,9 @@ function App() {
                 </div>
                 <small>Join the fight against <span className="text-green">COVID-19</span></small>
 
-                {/* <div className="w-100 mt-4 mb-4" style={{ backgroundColor: '#e5e7e7', height: '100px' }} /> */}
+                <StatsSummary />
 
-                <p>Project Objective:</p>
+                <p style={{fontWeight: "bold"}}>Project Objective:</p>
                 <p>
                   To better inform remediation strategies and public health interventions against COVID-19 for municipalities, provincial/federal authorities by mapping transmission patterns of diseases based on reports from epidemiologists and transportation data.
                 </p>

@@ -1,46 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
-const ProgressBar = ({ worker }) => {
-  const [active, setActive] = useState(worker.isWorking);
-  const [progress, setProgress] = useState(worker.progress || 0);
-  const [pub, setPublic] = useState(worker.public || {});
-
-  useEffect(() => {
-    const onSliceStart = ({ job }) => {
-      setActive(true);
-      setProgress(0);
-      setPublic(job);
-    }
-
-    const onSliceEnd = () => {
-      setActive(false);
-    }
-
-    const onSliceProgress = ({ progress }) => {
-      setProgress(progress);
-    }
-
-    worker.on('sliceStart', onSliceStart);
-    worker.on('sliceEnd', onSliceEnd);
-    worker.on('sliceProgress', onSliceProgress);
-    
-    return () => {
-      worker.off('sliceStart', onSliceStart);
-      worker.off('sliceEnd', onSliceEnd);
-      worker.off('sliceProgress', onSliceProgress);
-    }
-  }, [worker]);
-
-  return active && (
-    <div className="w-100 position-relative" style={{ height: '4px', backgroundColor: '#E5E7E7' }}>
-      <div className="position-absolute" style={{
-        top: 0, bottom: 0, left: 0,
-        width: `${progress}%`, transition: 'width 0.1s ease',
-        backgroundColor: '#146300',
-      }} />
-    </div>
-  );
-}
+import ProgressBar from './ProgressBar';
 
 const WorkerProgressBars = () => {
   const [workers, setWorkers] = useState([]);
@@ -48,6 +7,8 @@ const WorkerProgressBars = () => {
 
   useEffect(() => {
     const onSandboxStart = (worker) => {
+      setRunning(true);
+      console.log('on sandbox start called')
       setWorkers((workers) => [...workers, worker]);
       worker.on('workerStop', () => {
         setWorkers((workers) => workers.filter(w => w !== worker));
@@ -55,10 +16,12 @@ const WorkerProgressBars = () => {
     }
 
     const onStart = () => {
+      console.log('worker progressbars on start called')
       setRunning(true);
     }
 
     const onStop = () => {
+      console.log('on stop called')
       setRunning(false);
     }
 
@@ -75,15 +38,15 @@ const WorkerProgressBars = () => {
 
   return (
     <>
-      <div className="border d-flex align-items-center justify-content-between p-3 mt-3">
+      <div className="border d-flex align-items-center justify-content-between p-3 mt-3" style={{marginBottom: "15px"}}>
         <span>
           <span className="font-weight-bold mr-4">Status</span>
-          <span>{running? 'Computing' : 'Ready to Compute'}</span>
+          <span id="compute-status-span">Ready to Compute</span>
         </span>
         <span className="text-secondary">Task: COVID-19 Mapping</span>
       </div>
-      { workers.map((worker) => (
-        <ProgressBar worker={worker} key={worker.id} />
+      { workers.map((worker, idx) => (
+        <ProgressBar worker={worker} key={worker.id} index={idx} />
       ))}
     </>
   );
