@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import ProgressBar from './ProgressBar';
+import { act } from 'react-dom/test-utils';
+// import { act } from 'react-dom/test-utils';
 
 const WorkerProgressBars = () => {
   const [workers, setWorkers] = useState([]);
+  const [activeWorkerCount, setActiveWorkerCount] = useState(0);
   const [running, setRunning] = useState(false);
+  const [statusText, setStatusText] = useState();
 
   useEffect(() => {
     const onSandboxStart = (worker) => {
       setRunning(true);
-      console.log('on sandbox start called')
       setWorkers((workers) => [...workers, worker]);
       worker.on('workerStop', () => {
         setWorkers((workers) => workers.filter(w => w !== worker));
@@ -36,19 +39,36 @@ const WorkerProgressBars = () => {
     }
   }, []);
 
+  const incrementWorkerCount = useCallback(()=>{
+    setActiveWorkerCount(activeWorkerCount+1)
+  },[activeWorkerCount])
+
+  const decrementWorkerCount = useCallback(()=>{
+    setActiveWorkerCount(activeWorkerCount-1)
+  },[activeWorkerCount])
+
+  useEffect(()=>{
+    if (running) {
+      setStatusText(activeWorkerCount === 0 ? 'Waiting for Researchers ...' : 'Computing ...')
+    } else {
+      setStatusText('Ready to Compute')
+    }
+  },[activeWorkerCount, running])
+
   return (
     <>
-      <div className="border row p-3 m-0 mt-3" style={{marginBottom: "15px"}}>
-        <div className="col-12 col-sm-6">
-          <span className="font-weight-bold mr-4">Status</span>
-          <span id="compute-status-span">Ready to Compute</span>
+      <div className="border p-3 m-0 mt-3" style={{display: "flex", flexWrap: "wrap", justifyContent: "space-between"}}>
+        <div className="status-area">
+          <span className="font-weight-bold mr-2">Status</span>
+          <span id="compute-status-span">{statusText}</span>
         </div>
-        <div className="col-12 col-sm-6">
-          <span className="text-secondary float-right">Task: COVID-19 Mapping</span>
+        <div className="status-area">
+        <span className="font-weight-bold mr-2">Task</span>
+          <span>COVID-19 Mapping</span>
         </div>
       </div>
       { workers.map((worker, idx) => (
-        <ProgressBar worker={worker} key={worker.id} index={idx} />
+        <ProgressBar worker={worker} key={worker.id} index={idx} incrementWorkerCount={incrementWorkerCount} decrementWorkerCount={decrementWorkerCount} />
       ))}
     </>
   );

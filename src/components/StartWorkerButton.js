@@ -29,19 +29,16 @@ const StartWorkerButton = ({ }) => {
 
     // Modify text on click (putting the Hack in hackathon)
     let countSpan = document.getElementById('fighters-count');
-    let statusSpan = document.getElementById("compute-status-span")
 
     if (nextRunning) {
       let keystore = await new window.dcp.wallet.Keystore(demoKeystore)
       await keystore.unlock(null, 24 * 60 * 60)
       window.dcp.wallet.add(keystore)
       window.dcp.compute.mine(4);
-      countSpan.innerText = parseFloat(countSpan.innerText) + 1
-      statusSpan.innerText = "Computing ..."
+      if (countSpan) countSpan.innerText = parseFloat(countSpan.innerText) + 1
     } else {
       window.dcp.compute.stopMining();
-      countSpan.innerText = parseFloat(countSpan.innerText) - 1
-      statusSpan.innerText = "Ready to Compute";
+      if (countSpan) countSpan.innerText = parseFloat(countSpan.innerText) - 1
     }
   }, [running, setRunning]);
 
