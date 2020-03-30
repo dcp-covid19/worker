@@ -2,6 +2,7 @@ import React from 'react';
 import StartWorkerButton from './components/StartWorkerButton';
 import WorkerProgressBars from './components/WorkerProgressBars';
 import StatsSummary from './components/StatsSummary';
+import Header from 'dcp-covid19.github.io/components/Header';
 
 const App = () => {
   return (
@@ -9,7 +10,7 @@ const App = () => {
       <Header activeLink="Worker" />
       <div className="container">
         <div className="row mt-4">
-          <div className="col-12 col-md-5">
+          <div className="col-12 col-md-5 order-2">
             <div className="card">
               <div className="card-body">
                 <div className="d-flex align-items-center">
@@ -41,7 +42,7 @@ const App = () => {
               </div>
             </div>
           </div>
-          <div className="col-12 col-md-7 p-3">
+          <div className="col-12 col-md-7 p-3 order-md-12 order-1">
             <h3 className="mb-4">Compute for <span className="text-green">COVID-19</span></h3>
             <StartWorkerButton />
             <WorkerProgressBars />
