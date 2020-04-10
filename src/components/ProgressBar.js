@@ -21,7 +21,13 @@ const ProgressBar = ({ worker, index, incrementWorkerCount, decrementWorkerCount
     }
 
     const onSliceProgress = (progressEv) => {
-      if (progressEv.isIndeterminate) {
+      // Really noisy event handling here to make clear that this is special
+      // v3-compatible stuff here.
+      let v3Event, v4Event;
+      if (progressEv.hasOwnProperty('isIndeterminate')) v3Event = true;
+      if (progressEv.hasOwnProperty('indeterminate')) v4Event = true;
+      
+      if ((v3Event && progressEv.isIndeterminate) || (v4Event && progressEv.indeterminate)) {
         const maxIndex = Math.round(Math.random() * COLORS.length);
         setProgress({indeterminate: true, val: maxIndex});
       } else {

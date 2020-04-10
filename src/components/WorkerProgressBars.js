@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import ProgressBar from './ProgressBar';
-import { act } from 'react-dom/test-utils';
 // import { act } from 'react-dom/test-utils';
 
 const WorkerProgressBars = ({updateStatus, statusText}) => {
@@ -52,7 +51,7 @@ const WorkerProgressBars = ({updateStatus, statusText}) => {
     } else {
       updateStatus('ready')
     }
-  },[activeWorkerCount, running])
+  },[activeWorkerCount, running, updateStatus])
 
   return (
     <>

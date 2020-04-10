@@ -13,14 +13,13 @@ const App = () => {
         setStatusText('Ready to Compute')
         break;
       case 'waiting':
-        setStatusText('Waiting for Researchers ...');
+        setStatusText('Waiting for tasks ...');
         break;
       case 'computing':
         setStatusText('Computing ...');
         break
       default:
         throw new Error('Update status to one of three special values. Look at the code!')
-        break;
     }
   },[])
 

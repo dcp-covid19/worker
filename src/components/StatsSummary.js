@@ -31,7 +31,6 @@ const StatsSummary = () => {
     }
     </div>
   </div>
-
 }
 
 export default StatsSummary;
