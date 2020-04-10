@@ -25,7 +25,7 @@ const StatsSummary = () => {
     {!stats.worker && "Loading stats from network ..."}
     {stats.worker &&
       <>
-        <p>Tasks on Network: {stats.worker.distSlices}</p>
+        <p>Tasks on Network: {stats.worker.distSlices.total}</p>
         <p>COVID-19 Fighters: <span id="fighters-count">{stats.uniqueIds}</span></p>
       </>
     }
