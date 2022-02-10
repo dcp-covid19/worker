@@ -11,7 +11,7 @@
     "customize-cra": "^0.9.1",
     "dcp-covid19.github.io": "git+https://github.com/dcp-covid19/dcp-covid19.github.io.git",
     "gh-pages": "^2.2.0",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "nosleep.js": "^0.9.0",
     "react": "^16.13.1",
     "react-app-rewired": "^2.1.5",
